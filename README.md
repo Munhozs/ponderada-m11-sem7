@@ -1,2 +1,12 @@
-# ponderada-m11-sem7
 Ponderada de Tradução com Transformer
+
+No texto a seguir são evideciadas minhas percepções pessoais acerca da implementação do código de tradução automática via Transformers
+
+# Pontos Positivos
+
+De forma positiva, vejo que a implementação fornecida é um guia extremamente completo e detalhado da aquitetura e implementação de uma modelo Transformer, que consegue ser bem didático ao destrinchar cada parte da implementação. Além disso, achei interessante o fato que Transformers são paralelizáveis em sua essência, o que permite, ao menos, um treinamento mais "rápido" - rápido no sentido que poderia ser pior e demorar mais -, diferente das Redes Recorrentes, que não são paralelizáveis. Também posso dizer que pude aprender com o tutorial que a camada de Embedding precisa levar em consideração não somente a ocorrêcia de palavras, mas também sua posição na frase, pois "you are ok" e "are you ok?", por exemplo, trazem sentidos totalmente diferentes, então a ordem das palavras também precisam ser consideradas (PositionalEmbedding). De forma geral, foi possível entender cada parte da arquitetura e aprender os conceitos, sendo possível tentar implementar e chegar em um resultado após a teoria.
+
+
+# Pontos Negativos
+
+O principal ponto negativo que noto envolve o fato de que o modelo de Transformer requer enorme poder computacional para ser bem-sucedido. Por se tratar de um modelo que necessita de um poder computacional muito grande, é inviável obter bons resultados com implementações que utilizam hardwares comums. Mesmo implementando um modelo com uma GPU relativamente potente, T4, é impossível treinar o modelo de forma que ele identifique padrões e tenha boa acurácia. Mesmo colocando hiper parâmetros no mínimo e treinando com somente uma época (o que não permite um resultado satisfatório), o treinamento levou 1 hora e atingiu míseros 0,7% de acurácia, uma vez que todas as saídas foram somente "." - não foi capaz de traduzir nada. Dessa forma, minha percepção é que, mesmo se o Transformer tiver uma arquitetura robusta que permite um resultado extremamente preciso após treinado, o treinamento do modelo demanda muita memória, RAM, tempo e recursos, o que faz com que uma infraestrutura robusta seja necessária, o que demanda grandes recursos financeiros.
